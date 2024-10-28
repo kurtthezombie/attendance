@@ -69,7 +69,7 @@ function addrecord($table,$fields,$data){
 
 function updaterecord($table,$fields,$data){
 	global $conn;
-	$flds = array();
+	$setClauses = array();
 	//make sure both arrays have equal sizes
 	if(!(count($fields) == count($data))){
 		echo "Fields and Data Size are not equal";
@@ -77,12 +77,12 @@ function updaterecord($table,$fields,$data){
 	}
 
 	for($i=1;$i<count($fields);$i++){
-		$flds[]="`".$fields[$i]."`='".$data[$i]."'";
+		$setClauses[]="`".$fields[$i]."`='".$data[$i]."'";
 	}
 
 
-	$fld = implode(",",$flds);
-	$sql = "UPDATE `$table` SET $fld WHERE `$fields[0]` = '$data[0]'";
+	$setStatement = implode(",",$setClauses);
+	$sql = "UPDATE `$table` SET $setStatement WHERE `$fields[0]` = '$data[0]'";
 	connect();
 	$query = mysqli_query($conn,$sql);
 	disconnect();
