@@ -69,12 +69,11 @@ function addrecord($table,$fields,$data){
 
 function updaterecord($table,$fields,$data){
 	global $conn;
-	$okey = false;
 	$flds = array();
 	//make sure both arrays have equal sizes
 	if(!(count($fields) == count($data))){
 		echo "Fields and Data Size are not equal";
-		return $okey;
+		return false;
 	}
 
 	for($i=1;$i<count($fields);$i++){
