@@ -1,0 +1,19 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
